@@ -1,0 +1,20 @@
+.ProductListPage {
+    display: flex;
+    flex-direction: column;
+}
+
+.Content {    
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 5px solid black;
+    margin-bottom: 10px;    
+}
+.Content li {
+    margin: 70px;
+}
+
+.ProductListPage img {
+    max-width: 200px;
+    max-height: 200px;
+}

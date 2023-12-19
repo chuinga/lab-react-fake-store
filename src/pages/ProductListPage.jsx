@@ -1,4 +1,8 @@
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
+import ProductDetail from './ProductDetailsPage'
+
+//import styles from '../styles/ProductListPage.css'
 
 
 function ProductListPage() {
@@ -6,8 +10,6 @@ function ProductListPage() {
   // but you should use it to store the response from the Fake Store API (the list of products).
   const [products, setProducts] = useState([]);
   
-
-  // To fetch the list of products, set up an effect with the `useEffect` hook:
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
       .then(response => response.json())
@@ -15,9 +17,22 @@ function ProductListPage() {
   }, []);
 
   return (
-    <div className="ProductListPage">
+    <div className="content">
       {products.map(products => (
-        <li key={products.id}>{products.name}</li>
+        
+          <div className="card" key={products.id}>  
+          <Link to={`/product/details/${products.id}`} key={products.id}>
+          <img src={products.image} alt={products.title} />     
+          <h1>{products.title}</h1>
+          <ul>{products.category}</ul> 
+          <ul>{products.price}</ul>          
+          <ul>{products.description}</ul>          
+          </Link>     
+                   
+        </div>
+        
+
+        
       ))}
     </div>
   );
